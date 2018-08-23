@@ -31,8 +31,14 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1/db_spring_boot?useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
     username: root
     password: 123456
@@ -47,5 +53,4 @@ spring:
     expose-session-attributes: true
     request-context-attribute: request
     suffix: .ftl
-
 

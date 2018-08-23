@@ -32,8 +32,9 @@ public class UserController {
         return JsonResultUtil.success(userService.userList());
     }
 
-    @PostMapping("/user")
+    @PostMapping( "/user" )
     public JsonResult userAdd(User user) {
+        logger.error( "用户信息：{}" , user);
         return JsonResultUtil.success(userService.userAdd(user));
     }
 

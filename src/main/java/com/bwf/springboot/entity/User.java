@@ -14,6 +14,7 @@ import java.util.Date;
 
 @Entity
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"})
+
 public class User {
 
     @Id

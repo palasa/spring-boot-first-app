@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-Freemarker 模板引擎
-<h1>center page</h1>
+    Freemarker 模板引擎
+    <h1>center page</h1>
 </body>
 </html>
