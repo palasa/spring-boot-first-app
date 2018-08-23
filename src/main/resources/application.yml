@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot
+    session:
+#      timeout: 60
+  tomcat:
+    max-threads: 250
+    uri-encoding: utf-8
+    basedir: c:/spring-boot-tomcat-tmp
+    accesslog:
+      enabled: true
+
+logging:
+  path: c:/spring-boot-tomcat-tmp
+  file: spring-boot-app.log
+
+
+
+spring:
+  thymeleaf:
+    cache: false                        #1) 关闭模板引擎的缓存
+
+  devtools:
+    restart:
+      enabled: true                     #2) 热部署生效
+      additional-paths: src/main/java   #3) 监听目录
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/db_spring_boot?useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
+    username: root
+    password: 123456
+
