@@ -22,7 +22,6 @@ public class ExceptionHandler {
 
         if (e instanceof UserException) {
             logger.error("[用户异常]：{}", e.getMessage());
-            UserException ue = (UserException) e;
             return JsonResultUtil.error(ResultType.USER_ERROR);
 
         }
