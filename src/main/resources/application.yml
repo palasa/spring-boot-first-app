@@ -2,7 +2,7 @@ server:
   port: 8080
   servlet:
     context-path: /springboot
-    session:
+#    session:
 #      timeout: 60
   tomcat:
     max-threads: 250
