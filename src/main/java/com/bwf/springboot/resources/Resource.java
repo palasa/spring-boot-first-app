@@ -4,7 +4,6 @@ package com.bwf.springboot.resources;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 
 @Configuration
 @ConfigurationProperties(prefix = "com.bwf.springboot")

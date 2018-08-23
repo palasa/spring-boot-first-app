@@ -1,7 +1,5 @@
 package com.bwf.springboot.entity;
 
-import com.bwf.springboot.enums.ResultType;
-
 public class JsonResult<T> {
 
     private Integer code;

@@ -5,6 +5,7 @@ import com.bwf.springboot.enums.ResultType;
 
 public class JsonResultUtil {
 
+    @SuppressWarnings("unchecked")
     public static JsonResult getResult(ResultType resultType, Object data) {
         JsonResult jsonResult = new JsonResult();
         jsonResult.setCode(resultType.getCode());
@@ -18,6 +19,7 @@ public class JsonResultUtil {
         JsonResult jsonResult = new JsonResult();
         jsonResult.setCode(ResultType.SUCESS.getCode());
         jsonResult.setMsg(ResultType.SUCESS.getMessage());
+        //noinspection unchecked
         jsonResult.setData(data);
 
         return jsonResult;
@@ -31,6 +33,7 @@ public class JsonResultUtil {
         JsonResult jsonResult = new JsonResult();
         jsonResult.setCode(resultType.getCode());
         jsonResult.setMsg(resultType.getMessage());
+        //noinspection unchecked
         jsonResult.setData(null);
 
         return jsonResult;

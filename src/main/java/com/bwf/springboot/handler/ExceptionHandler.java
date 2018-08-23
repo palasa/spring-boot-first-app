@@ -2,7 +2,6 @@ package com.bwf.springboot.handler;
 
 
 import com.bwf.springboot.entity.JsonResult;
-import com.bwf.springboot.entity.User;
 import com.bwf.springboot.enums.ResultType;
 import com.bwf.springboot.exception.UserException;
 import com.bwf.springboot.utils.JsonResultUtil;

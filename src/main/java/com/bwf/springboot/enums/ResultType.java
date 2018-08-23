@@ -8,8 +8,8 @@ public enum ResultType {
     USER_ERROR(501, "用户模块发生错误");
 
 
-    private Integer code;
-    private String message;
+    private final Integer code;
+    private final String message;
 
     ResultType(Integer code, String message) {
         this.code = code;
