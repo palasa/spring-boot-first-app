@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script th:src="@{/static/script/test.js}"></script>
 </head>
 <body>
 <div>
@@ -13,5 +14,31 @@
     用户生日：<input th:value="${user.birthday}"> <br>
     用户生日：<input th:value="${#dates.format(user.birthday, 'yyyy/MM/dd hh:mm:ss')}"> <br>
 </div>
+<hr>
+<div th:object="${user}">
+    用户姓名：<input th:id="*{username}"
+                th:name="*{username}"
+                th:value="*{username}"> <br>
+    用户年龄：<input th:value="*{age}"> <br>
+    用户生日：<input th:value="*{birthday}"> <br>
+    用户生日：<input th:value="*{#dates.format(birthday, 'yyyy/MM/dd hh:mm:ss')}"> <br>
+</div>
+
+<hr>
+
+<div>
+    text: <span th:text="${user.desc}"></span> <br>
+    utext: <span th:utext="${user.desc}"></span> <br>
+    <a th:href="@{http://www.baidu.com}">超链接</a>
+</div>
+
+<hr>
+
+<form th:action="@{/th/postform}" th:object="${user}" method="post">
+    <input type="text" th:field="*{username}">
+    <input type="submit">
+</form>
+
+
 </body>
 </html>

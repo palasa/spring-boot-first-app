@@ -1,8 +1,11 @@
 package com.bwf.springboot.controller;
 
 import com.bwf.springboot.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
@@ -11,15 +14,18 @@ import java.util.Date;
 @RequestMapping("th")
 public class ThymeleafController {
 
+    private static final Logger logger =
+            LoggerFactory.getLogger(ThymeleafController.class);
+
     @RequestMapping("index")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("name", "thymeleaf test");
-        return "thymeleaf/index";
+        return "index";
     }
 
     @RequestMapping("center")
     public String center() {
-        return "thymeleaf/center/center";
+        return "center/center";
     }
 
     @RequestMapping("test")
@@ -32,6 +38,12 @@ public class ThymeleafController {
         user.setBirthday(new Date());
 
         modelMap.addAttribute("user", user);
-        return "thymeleaf/test";
+        return "test";
+    }
+
+    @PostMapping("postform")
+    public String postForm(User user) {
+        logger.warn("传入的用户信息：{}", user);
+        return "redirect:/th/test";
     }
 }

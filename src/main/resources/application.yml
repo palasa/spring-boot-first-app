@@ -18,9 +18,12 @@ logging:
 
 
 spring:
+  mvc:
+    static-path-pattern: /static/**     # 静态文件位置
+
   thymeleaf:
     cache: false                        #1) 关闭模板引擎的缓存，开发环境使用，生产环境改为true
-    prefix: classpath:/templates
+    prefix: classpath:/templates/thymeleaf/
     suffix: .html
     mode: HTML5
     encoding: UTF-8
@@ -48,6 +51,7 @@ spring:
     url: jdbc:mysql://127.0.0.1/db_spring_boot?useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
     username: root
     password: 123456
+
 
 #  freemarker:
 #    template-loader-path: classpath:/templates    #模板路径
