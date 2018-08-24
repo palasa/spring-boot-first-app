@@ -2,8 +2,8 @@ server:
   port: 8080
   servlet:
     context-path: /springboot
-#    session:
-#      timeout: 60
+    session:
+      timeout: 60m
   tomcat:
     max-threads: 250
     uri-encoding: utf-8
@@ -20,6 +20,11 @@ logging:
 spring:
   mvc:
     static-path-pattern: /static/**     # 静态文件位置
+
+  messages:
+    basename: i18n/messages
+    encoding: utf-8
+    cache-duration: 60m
 
   thymeleaf:
     cache: false                        #1) 关闭模板引擎的缓存，开发环境使用，生产环境改为true
@@ -51,6 +56,7 @@ spring:
     url: jdbc:mysql://127.0.0.1/db_spring_boot?useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
     username: root
     password: 123456
+
 
 
 #  freemarker:

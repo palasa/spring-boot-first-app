@@ -39,6 +39,47 @@
     <input type="submit">
 </form>
 
+<hr>
+<div th:if="${user.age} == 18">十八岁的天空</div>
+<div th:if="${user.age} gt 18"> 大于18</div>
+<div th:if="${user.age} lt 18"> 小于18</div>
+<div th:if="${user.age} ge 18"> 大于等于18</div>
+<div th:if="${user.age} le 18"> 小于等于18</div>
+
+<hr>
+
+<select>
+    <option th:selected="${user.username eq 'Lee'}">Lee</option>
+    <option th:selected="${user.username eq 'Jack'}">Jack</option>
+    <option th:selected="${user.username eq 'Anderson'}">Anderson</option>
+</select>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>生日</th>
+    </tr>
+
+    <tr th:each="person:${userList}">
+        <td th:text="${person.username}"></td>
+        <td th:text="${person.age}"></td>
+        <td th:text="${#dates.format(person.birthday, 'yyyy/MM/dd hh:mm:ss')}"></td>
+    </tr>
+
+</table>
+
+<br>
+
+<ul th:switch="${user.username}">
+    <li th:case="Lee">超级管理员</li>
+    <li th:case="Zhang">管理员</li>
+    <li th:case="Wang">实习生</li>
+    <li th:case="*">其他</li>
+</ul>
+
 
 </body>
 </html>
