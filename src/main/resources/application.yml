@@ -19,7 +19,13 @@ logging:
 
 spring:
   thymeleaf:
-    cache: false                        #1) 关闭模板引擎的缓存
+    cache: false                        #1) 关闭模板引擎的缓存，开发环境使用，生产环境改为true
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
 
   devtools:
     restart:
@@ -43,14 +49,15 @@ spring:
     username: root
     password: 123456
 
-  freemarker:
-    template-loader-path: classpath:/templates    #模板路径
-    cache: false                                  #不缓存，即时刷新，生产环境为 true
-    charset: UTF-8
-    check-template-location: true
-    content-type: text/html
-    expose-request-attributes: true
-    expose-session-attributes: true
-    request-context-attribute: request
-    suffix: .ftl
+#  freemarker:
+#    template-loader-path: classpath:/templates    #模板路径
+#    cache: false                                  #不缓存，即时刷新，生产环境为 true
+#    charset: UTF-8
+#    check-template-location: true
+#    content-type: text/html
+#    expose-request-attributes: true
+#    expose-session-attributes: true
+#    request-context-attribute: request
+#    suffix: .ftl
+
 

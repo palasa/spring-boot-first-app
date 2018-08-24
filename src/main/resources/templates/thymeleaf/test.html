@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    用户姓名：<input th:id="${user.username}"
+                th:name="${user.username}"
+                th:value="${user.username}"> <br>
+    用户年龄：<input th:value="${user.age}"> <br>
+    用户生日：<input th:value="${user.birthday}"> <br>
+    用户生日：<input th:value="${#dates.format(user.birthday, 'yyyy/MM/dd hh:mm:ss')}"> <br>
+</div>
+</body>
+</html>
