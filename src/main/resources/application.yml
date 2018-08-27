@@ -17,14 +17,35 @@ logging:
 
 
 
+
 spring:
   mvc:
     static-path-pattern: /static/**     # 静态文件位置
 
-  messages:
-    basename: i18n/messages
+  servlet:
+    multipart:
+      enabled: true                     # 开启文件上传
+      file-size-threshold: 0MB            # 大于0的文件写入磁盘
+      location: c:/tmp_files            # 临时目录
+      max-file-size: 10MB                # 单个文件上限
+      max-request-size: 50MB             # 单次请求上限
+
+
+  messages:                             # i18n配置
+    basename: i18n/messages             # 配置文件位置
     encoding: utf-8
     cache-duration: 60m
+
+  freemarker:
+    template-loader-path: classpath:/templates    #模板路径
+    cache: false                                  #不缓存，即时刷新，生产环境为 true
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
 
   thymeleaf:
     cache: false                        #1) 关闭模板引擎的缓存，开发环境使用，生产环境改为true
@@ -59,15 +80,6 @@ spring:
 
 
 
-#  freemarker:
-#    template-loader-path: classpath:/templates    #模板路径
-#    cache: false                                  #不缓存，即时刷新，生产环境为 true
-#    charset: UTF-8
-#    check-template-location: true
-#    content-type: text/html
-#    expose-request-attributes: true
-#    expose-session-attributes: true
-#    request-context-attribute: request
-#    suffix: .ftl
+
 
 
