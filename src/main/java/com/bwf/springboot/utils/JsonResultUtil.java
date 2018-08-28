@@ -17,8 +17,8 @@ public class JsonResultUtil {
 
     public static JsonResult success(Object data) {
         JsonResult jsonResult = new JsonResult();
-        jsonResult.setCode(ResultType.SUCESS.getCode());
-        jsonResult.setMsg(ResultType.SUCESS.getMessage());
+        jsonResult.setCode(ResultType.SUCCESS.getCode());
+        jsonResult.setMsg(ResultType.SUCCESS.getMessage());
         //noinspection unchecked
         jsonResult.setData(data);
 

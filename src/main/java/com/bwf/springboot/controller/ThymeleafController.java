@@ -22,12 +22,12 @@ public class ThymeleafController {
     @RequestMapping("index")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("name", "thymeleaf test");
-        return "index";
+        return "thymeleaf/index";
     }
 
     @RequestMapping("center")
     public String center() {
-        return "center/center";
+        return "thymeleaf/center/center";
     }
 
     @RequestMapping("test")
@@ -56,11 +56,7 @@ public class ThymeleafController {
 
         modelMap.addAttribute("userList", userList);
 
-
-
-
-
-        return "test";
+        return "thymeleaf/test";
     }
 
     @PostMapping("postform")
