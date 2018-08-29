@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MySqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--<plugin type="tk.mybatis.mapper.generator.MapperPlugin" >-->
+        <!--<property name="mappers" value="com.bwf.springboot.mapper"/>-->
+        <!--</plugin>-->
+
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://127.0.0.1/db_spring_boot?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=PRC"
+                userId="root"
+                password="123456">
+        </jdbcConnection>
+
+        <!-- 生成的实体类所在包 -->
+        <javaModelGenerator targetPackage="com.bwf.springboot.model" targetProject="src/main/java"/>
+
+        <!-- 生成的 mapper.xml 所在目录  -->
+        <sqlMapGenerator targetPackage="com.bwf.springboot.mapper.xml" targetProject="src/main/java"/>
+
+        <!-- xxxMapper.java -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.bwf.springboot.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 需要逆向生成的表名 -->
+        <table tableName="user"/>
+
+    </context>
+
+</generatorConfiguration>

@@ -6,7 +6,7 @@
     <script th:src="@{/static/script/jquery-3.3.1.js}"></script>
     <script>
         $(function () {
-            // debugger;
+            debugger;
             $.ajax('ajaxError', {
                 'success': function (data) {
                     console.error("错误码：" + data.code + '\n' + data.msg + '\n' + data.data);

@@ -15,6 +15,33 @@ logging:
   path: c:/spring-boot-tomcat-tmp
   file: spring-boot-app.log
 
+#在使用 DevTools 时，通用Mapper经常会出现 class x.x.A cannot be cast to x.x.A。
+#同一个类如果使用了不同的类加载器，就会产生这样的错误，所以解决方案就是让通用Mapper和实体类使用相同的类加载器即可。
+#DevTools 默认会对 IDE 中引入的所有项目使用 restart 类加载器，
+#  对于引入的 jar 包使用 base 类加载器，
+#  因此只要保证通用Mapper的jar包使用 restart 类加载器即可。
+restart:
+  include:
+    mapper: /mapper-[\\w-\\.]+jar
+    pagehelper: /pagehelper-[\\w-\\.]+jar
+
+
+# mybatis 相关设置
+mybatis:
+  type-aliases-package: com.bwf.springboot.model
+  mapper-locations: classpath:mapper/*.xml
+
+mapper:
+  mappers: com.bwf.springboot.mapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
 spring:
   mvc:
     static-path-pattern: /static/**     # 静态文件位置
@@ -70,10 +97,25 @@ spring:
       force: true
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    #  使用 alibaba druid 数据源
     url: jdbc:mysql://127.0.0.1/db_spring_boot?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
     username: root
     password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      web-stat-filter:
+        session-stat-max-count: 20
+      stat-view-servlet:
+        allow: true
+
+#    使用 jpa 数据源
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1/db_spring_boot?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
+#    username: root
+#    password: 123456
+
+
+
 
 
 

@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,7 +29,8 @@ public class UserControllerTest {
     @Test
     public void userAdd() throws Exception {
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user")
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .post("/user")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .accept(MediaType.APPLICATION_JSON)
 //                .param("username" , "jsf")
