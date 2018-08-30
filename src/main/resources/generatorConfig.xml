@@ -5,13 +5,14 @@
 
 <generatorConfiguration>
 
-    <context id="MySqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <!-- use MyBatis3Simple to get simple dao -->
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
-        <!--<plugin type="tk.mybatis.mapper.generator.MapperPlugin" >-->
-        <!--<property name="mappers" value="com.bwf.springboot.mapper"/>-->
-        <!--</plugin>-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.bwf.springboot.mapper.common.Mapper"/>
+        </plugin>
 
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
@@ -26,7 +27,7 @@
         <!-- 生成的 mapper.xml 所在目录  -->
         <sqlMapGenerator targetPackage="com.bwf.springboot.mapper.xml" targetProject="src/main/java"/>
 
-        <!-- xxxMapper.java -->
+        <!-- interface xxxMapper.java -->
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.bwf.springboot.mapper"
                              targetProject="src/main/java">
@@ -34,7 +35,8 @@
         </javaClientGenerator>
 
         <!-- 需要逆向生成的表名 -->
-        <table tableName="user"/>
+        <!--<table tableName="user"/>-->
+        <table tableName="sys_user"/>
 
     </context>
 
