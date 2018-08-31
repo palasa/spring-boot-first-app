@@ -1,13 +1,14 @@
 package com.bwf.springboot;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @SuppressWarnings("ALL")
 @SpringBootApplication
-@MapperScan(basePackages = "com.bwf.springboot.mapper.xml")
+@MapperScan(basePackages = {"com.bwf.springboot.mapper.xml", "com.bwf.springboot.mapper"})
 @ComponentScan(basePackages = {"com.bwf.springboot", "org.n3r.idworkder"})
 public class SpringbootApplication {
 

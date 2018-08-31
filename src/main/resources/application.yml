@@ -16,7 +16,8 @@ logging:
   file: spring-boot-app.log
 
 #在使用 DevTools 时，通用Mapper经常会出现 class x.x.A cannot be cast to x.x.A。
-#同一个类如果使用了不同的类加载器，就会产生这样的错误，所以解决方案就是让通用Mapper和实体类使用相同的类加载器即可。
+#同一个类如果使用了不同的类加载器，就会产生这样的错误，
+#所以解决方案就是让通用Mapper和实体类使用相同的类加载器即可。
 #DevTools 默认会对 IDE 中引入的所有项目使用 restart 类加载器，
 #  对于引入的 jar 包使用 base 类加载器，
 #  因此只要保证通用Mapper的jar包使用 restart 类加载器即可。
@@ -85,10 +86,10 @@ spring:
       enabled: true                     #2) 热部署生效
       additional-paths: src/main/java   #3) 监听目录
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  #  jpa:
+  #    hibernate:
+  #      ddl-auto: update
+  #    show-sql: true
 
   http:
     encoding:
@@ -98,15 +99,13 @@ spring:
 
   datasource:
     #  使用 alibaba druid 数据源
-    url: jdbc:mysql://127.0.0.1/db_spring_boot?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      web-stat-filter:
-        session-stat-max-count: 20
-      stat-view-servlet:
-        allow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1/db_spring_boot?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=PRC
+      username: root
+      password: 123456
 
 #    使用 jpa 数据源
 #    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -4,9 +4,11 @@ import com.bwf.springboot.mapper.SysUserMapper;
 import com.bwf.springboot.model.SysUser;
 import com.bwf.springboot.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SysUserServiceImpl implements ISysUserService {
 
     @Autowired

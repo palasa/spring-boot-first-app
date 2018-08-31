@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
+<!-- mybatis generator configuration -->
 <generatorConfiguration>
 
     <!-- use MyBatis3Simple to get simple dao -->
@@ -11,7 +12,7 @@
         <property name="endingDelimiter" value="`"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.bwf.springboot.mapper.common.Mapper"/>
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
         </plugin>
 
         <jdbcConnection
