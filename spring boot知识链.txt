@@ -1,0 +1,30 @@
+spring mvc , spring
+	spring boot ,  junit :
+
+	log4j :
+	
+	i18n :
+
+	thymeleaf :
+
+	freemarker :
+
+	devtools :
+
+hibernate , hibernate code first
+	jpa :
+
+dbcp , c3p0
+	druid:
+
+mybatis
+	tk.mybatis , pagehelper
+
+
+todo:
+    git & github
+    multi user using git
+    page helper
+
+
+
