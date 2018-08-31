@@ -14,6 +14,9 @@ server:
 logging:
   path: c:/spring-boot-tomcat-tmp
   file: spring-boot-app.log
+  # 该包下所有日志在 error 流输出
+#  level:
+#    com.bwf.springboot.mapper: error
 
 #在使用 DevTools 时，通用Mapper经常会出现 class x.x.A cannot be cast to x.x.A。
 #同一个类如果使用了不同的类加载器，就会产生这样的错误，

@@ -31,24 +31,23 @@ public class MyBatisController {
         logger.info("新增用户，时间：{} , 操作人：{}", new Date(), "admin");
 
         SysUser user = new SysUser();
-        user.setId(sid.nextShort());
         user.setUsername("xiao wang");
         user.setPassword("123");
         user.setAge(32);
         user.setDescription("hello");
         user.setBirthday(new Date());
 
-        userService.saveUser(user);
+        userService.addUser(user);
 
         return JsonResultUtil.success();
     }
 
     @RequestMapping("updateUser")
-    public JsonResult updateUser() throws Exception {
+    public JsonResult updateUser()  {
         logger.info("保存用户，时间：{} , 操作人：{}", new Date(), "admin");
 
         SysUser user = new SysUser();
-        user.setId("180831BXPNRYGBMW");
+        user.setId(1);
         user.setUsername("updated");
         user.setPassword("updated");
         user.setAge(32);

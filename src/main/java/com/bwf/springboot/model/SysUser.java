@@ -1,15 +1,16 @@
 package com.bwf.springboot.model;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Table;
 import java.util.Date;
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Table(name = "sys_user")
 public class SysUser {
 
     @Id
-    private String id;
+    @GeneratedValue( strategy = IDENTITY )
+    private Integer id;
 
     private Integer age;
 
@@ -24,14 +25,14 @@ public class SysUser {
     /**
      * @return id
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -54,6 +55,18 @@ public class SysUser {
      */
     public Date getBirthday() {
         return birthday;
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id=" + id +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", description='" + description + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 
     /**

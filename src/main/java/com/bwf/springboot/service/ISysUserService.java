@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ISysUserService {
 
-    void saveUser(SysUser sysUser) throws Exception;
+    SysUser addUser(SysUser sysUser) throws Exception;
 
-    void updateUser(SysUser sysUser);
+    SysUser updateUser(SysUser sysUser);
 
-    void deleteUser(Integer userId);
+    SysUser deleteUser(Integer userId);
 
     SysUser queryUserById(Integer userId);
 
