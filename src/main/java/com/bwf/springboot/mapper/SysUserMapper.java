@@ -1,6 +1,5 @@
 package com.bwf.springboot.mapper;
 
-
 import com.bwf.springboot.model.SysUser;
 import com.bwf.springboot.model.SysUserExample;
 import org.apache.ibatis.annotations.Param;

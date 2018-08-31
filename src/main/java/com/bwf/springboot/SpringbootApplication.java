@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SuppressWarnings("ALL")
 @SpringBootApplication
 @MapperScan(basePackages = {"com.bwf.springboot.mapper.xml", "com.bwf.springboot.mapper"})
-@ComponentScan(basePackages = {"com.bwf.springboot", "org.n3r.idworkder"})
+@ComponentScan(basePackages = {"com.bwf.springboot", "org.n3r.idworker"})
 public class SpringbootApplication {
 
     public static void main(String[] args) {

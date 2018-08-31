@@ -1,11 +1,15 @@
 package com.bwf.springboot.model;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "sys_user")
 public class SysUser {
-    private Integer id;
+
+    @Id
+    private String id;
 
     private Integer age;
 
@@ -20,14 +24,14 @@ public class SysUser {
     /**
      * @return id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
