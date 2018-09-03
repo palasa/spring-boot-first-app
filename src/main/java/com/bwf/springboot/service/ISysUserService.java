@@ -18,4 +18,5 @@ public interface ISysUserService {
     List<SysUser> queryUserList();
 
 
+    List<SysUser> queryUserListPaged(SysUser user, Integer page, int pageSize);
 }

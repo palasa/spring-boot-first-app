@@ -66,4 +66,14 @@ public class SysUserServiceImplTest {
         List<SysUser> users = userService.queryUserList();
         Assert.assertEquals( 4, users.size() );
     }
+
+    @Test
+    public void queryUserListPaged() {
+        List<SysUser> userList = userService.queryUserListPaged(new SysUser(), 1, 5);
+        Assert.assertEquals(5, userList.size());
+
+        for (SysUser user : userList) {
+            System.err.println(user);
+        }
+    }
 }

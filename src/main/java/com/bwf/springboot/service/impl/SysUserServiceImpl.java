@@ -3,9 +3,12 @@ package com.bwf.springboot.service.impl;
 import com.bwf.springboot.mapper.SysUserMapper;
 import com.bwf.springboot.model.SysUser;
 import com.bwf.springboot.service.ISysUserService;
+import com.github.pagehelper.PageHelper;
+import com.mysql.cj.core.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -43,5 +46,23 @@ public class SysUserServiceImpl implements ISysUserService {
     @Override
     public List<SysUser> queryUserList() {
         return userMapper.selectAll();
+    }
+
+    @Override
+    public List<SysUser> queryUserListPaged(SysUser user, Integer page, int pageSize) {
+
+        PageHelper.startPage(page, pageSize);
+
+        Example example = new Example(SysUser.class);
+        Example.Criteria criteria = example.createCriteria();
+
+        if (!StringUtils.isEmptyOrWhitespaceOnly(user.getUsername())) {
+            criteria.andLike("username", "%" + user.getUsername() + "%");
+        }
+
+        example.orderBy("birthday").desc();
+
+        List<SysUser> userList = userMapper.selectByExample(example);
+        return userList;
     }
 }

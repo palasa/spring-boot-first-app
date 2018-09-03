@@ -9,10 +9,13 @@ import org.n3r.idworker.Sid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("mybatis")
@@ -57,6 +60,24 @@ public class MyBatisController {
         userService.updateUser(user);
 
         return JsonResultUtil.success();
+    }
+
+    @GetMapping("queryUserListPaged/{page}/{pageSize}")
+    public JsonResult queryUserListPaged(
+            @PathVariable Integer page,
+            @PathVariable Integer pageSize
+    ) {
+        if (page == null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 10;
+        }
+
+        SysUser user = new SysUser();
+
+        List<SysUser> userList = userService.queryUserListPaged(user, page, pageSize);
+        return JsonResultUtil.success(userList);
     }
 
 

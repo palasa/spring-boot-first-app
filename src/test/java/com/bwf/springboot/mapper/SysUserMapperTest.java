@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.n3r.idworker.Sid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -40,9 +40,6 @@ public class SysUserMapperTest {
         user.setAge(32);
         user.setDescription("hello");
         user.setBirthday(new Date());
-
-
-
         Assert.assertEquals(1,userMapper.insert(user));
 
     }
@@ -53,7 +50,7 @@ public class SysUserMapperTest {
 //        SysUser user = userMapper.selectAll().get(0);
 //        System.out.println( "用户信息：" + user);
         SysUser user = new SysUser();
-        user.setId(2);
+        user.setId(1);
         user.setAge(18);
         user.setBirthday(new Date());
         user.setDescription("updated");
@@ -69,7 +66,8 @@ public class SysUserMapperTest {
     public void deleteUser() {
 
         SysUser user = new SysUser();
-        user.setId(userMapper.selectAll().get(0).getId());
+        List<SysUser> userList = userMapper.selectAll();
+        user.setId(userList.get(userList.size() - 1).getId());
         Assert.assertEquals( 1, userMapper.deleteByPrimaryKey(user.getId()));
 
     }
